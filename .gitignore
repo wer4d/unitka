@@ -19,7 +19,9 @@
 
 # misc
 .DS_Store
+.idea/
 *.pem
+unitka-selfhost.tar.gz
 
 # debug
 npm-debug.log*

@@ -1,0 +1,7 @@
+services:
+  unitka:
+    build: .
+    container_name: unitka
+    restart: unless-stopped
+    ports:
+      - "8080:80"
