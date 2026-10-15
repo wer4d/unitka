@@ -20,6 +20,8 @@
 # misc
 .DS_Store
 .idea/
+.venv/
+main.py
 *.pem
 unitka-selfhost.tar.gz
 
