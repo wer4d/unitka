@@ -15,6 +15,7 @@ type Inputs = {
 
 type ModelKey = "goods" | "services" | "store" | "niche";
 type NicheKey = "realEstate" | "autoService" | "dentistry" | "beautySalon" | "onlineStore" | "legalServices" | "fitnessClub";
+type Theme = "light" | "dark";
 const presets: Record<Exclude<ModelKey, "niche">, Inputs> = {
   goods: {
     averageCheck: 5500,
@@ -161,6 +162,20 @@ export default function Home() {
   const [exportModalOpen, setExportModalOpen] = useState(false);
   const [metricsGuideOpen, setMetricsGuideOpen] = useState(false);
   const [calculationLogicOpen, setCalculationLogicOpen] = useState(false);
+  const [theme, setTheme] = useState<Theme>("light");
+  useEffect(() => {
+    const savedTheme = window.localStorage.getItem("unitka-theme");
+    const initialTheme: Theme = savedTheme === "dark" ? "dark" : "light";
+    document.documentElement.dataset.theme = initialTheme;
+    // Theme is restored only after hydration because localStorage is browser-only.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setTheme(initialTheme);
+  }, []);
+  const chooseTheme = (nextTheme: Theme) => {
+    setTheme(nextTheme);
+    document.documentElement.dataset.theme = nextTheme;
+    window.localStorage.setItem("unitka-theme", nextTheme);
+  };
   useEffect(() => {
     if (!nicheOpen) return;
     const closeOnOutsideClick = (event: MouseEvent | TouchEvent) => {
@@ -312,11 +327,21 @@ export default function Home() {
     <main>
       <header className="header" id="top">
         <div className="header-inner">
-          <a className="brand" href="#top">
-            <span className="brand-mark"><img src={`${basePath}/supplied-logo.webp`} alt="Студия Павла Федотова" /></span>
-            <b>Юнитка</b>
-          </a>
-          <span className="header-title">Юнит-экономика. Универсальный калькулятор v37</span>
+          <div className="header-identity">
+            <a className="brand" href="#top">
+              <span className="brand-mark"><img src={`${basePath}/supplied-logo.webp`} alt="Студия Павла Федотова" /></span>
+              <b>Юнитка</b>
+            </a>
+            <span className="header-title">Юнит-экономика. Универсальный калькулятор v37</span>
+          </div>
+          <div className="theme-switch" role="group" aria-label="Цветовая тема">
+            <button type="button" className={theme === "light" ? "active" : ""} aria-label="Светлая тема" aria-pressed={theme === "light"} onClick={() => chooseTheme("light")}>
+              <span aria-hidden="true">☀</span><b>Светлая</b>
+            </button>
+            <button type="button" className={theme === "dark" ? "active" : ""} aria-label="Тёмная тема" aria-pressed={theme === "dark"} onClick={() => chooseTheme("dark")}>
+              <span aria-hidden="true">☾</span><b>Тёмная</b>
+            </button>
+          </div>
         </div>
       </header>
 
