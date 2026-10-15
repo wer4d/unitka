@@ -75,6 +75,7 @@ const metricGuide = [
 
 const rub = new Intl.NumberFormat("ru-RU", { maximumFractionDigits: 0 });
 const qty = new Intl.NumberFormat("ru-RU", { maximumFractionDigits: 1 });
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
 function money(value: number) {
   return `${rub.format(Number.isFinite(value) ? value : 0)} ₽`;
@@ -312,7 +313,7 @@ export default function Home() {
       <header className="header" id="top">
         <div className="header-inner">
           <a className="brand" href="#top">
-            <span className="brand-mark"><img src="/supplied-logo.webp" alt="Студия Павла Федотова" /></span>
+            <span className="brand-mark"><img src={`${basePath}/supplied-logo.webp`} alt="Студия Павла Федотова" /></span>
             <b>Юнитка</b>
           </a>
           <span className="header-title">Юнит-экономика. Универсальный калькулятор v37</span>
@@ -738,7 +739,7 @@ export default function Home() {
       <section className="pdf-report" aria-hidden="true">
         <div className="pdf-header">
           <div className="pdf-logo">
-            <img src="/supplied-logo.webp" alt="" />
+            <img src={`${basePath}/supplied-logo.webp`} alt="" />
             <span suppressHydrationWarning>{printDate}</span>
           </div>
           <div className="pdf-brand">
