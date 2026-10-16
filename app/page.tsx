@@ -141,7 +141,12 @@ function Field({ label, value, suffix, decimal = false, step, onChange }: { labe
 }
 
 function Metric({ label, value, accent }: { label: string; value: string; accent?: "green" | "coral" }) {
-  return <article className={`metric ${accent ?? ""}`}><div><small>{label}</small><b>{value}</b></div></article>;
+  return (
+    <article className="metric-item">
+      <small className="field-label">{label}</small>
+      <div className={`metric ${accent ?? ""}`}><b>{value}</b></div>
+    </article>
+  );
 }
 
 export default function Home() {
@@ -417,7 +422,10 @@ export default function Home() {
           </section>
 
           <section className="input-group marketing-group">
-            <div className="group-head"><span className="step">Воронка привлечения</span></div>
+            <div className="group-head marketing-heading">
+              <span className="step">Воронка привлечения</span>
+              <small>Основные показатели</small>
+            </div>
             <div className="fields marketing-fields">
               <Field label="Рекламный бюджет" value={inputs.budget} suffix="₽" step={10000} onChange={(v) => update("budget", v)} />
               <div className="paired-field other-expenses">
