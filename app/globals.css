@@ -125,9 +125,9 @@ h2 { font-size:23px; line-height:1.2; margin:5px 0 18px; letter-spacing:-.02em; 
 .period-correction-toggle:hover { border-color:var(--accent-border); }
 .period-correction-toggle.active { border-color:var(--accent); background:var(--accent-soft); color:var(--accent-dark); }
 .metric-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:9px; margin-top:18px; padding-top:18px; border-top:1px solid var(--line); }
-.result-section-heading { display:grid; gap:5px; margin-top:18px; padding-top:18px; border-top:1px solid var(--line); }
+.result-section-heading { display:grid; gap:5px; margin-top:16px; padding-top:16px; border-top:1px solid var(--line); }
 .result-section-heading small { color:var(--muted); font-size:11px; line-height:1.4; }
-.period-result-grid { margin-top:6px; padding-top:0; border-top:0; }
+.period-result-grid { margin-top:12px; padding-top:0; border-top:0; }
 .potential-result { margin-top:14px; padding:0 14px 13px; border:1px solid var(--accent-border); border-radius:12px; background:var(--accent-soft); }
 .potential-result .result-section-heading { margin-top:0; padding-top:14px; border-top:0; }
 .potential-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:9px; margin-top:12px; }
@@ -241,8 +241,8 @@ h2 { font-size:23px; line-height:1.2; margin:5px 0 18px; letter-spacing:-.02em; 
   .results-period { margin-top:12px; padding-top:14px; }
   .calculation-period { gap:10px; }
   .period-field,.correction-field { gap:4px; }
-  .metric-grid,.result-section-heading { margin-top:16px; padding-top:16px; }
-  .period-result-grid { margin-top:6px; padding-top:0; }
+  .metric-grid,.result-section-heading { margin-top:14px; padding-top:14px; }
+  .period-result-grid { margin-top:10px; padding-top:0; }
   .metric-grid { gap:8px; }
   .metric-item { gap:4px; }
   .metric { height:40px; min-height:40px; padding:3px 9px; }
