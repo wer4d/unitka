@@ -19,6 +19,13 @@ npm run dev
 
 Основная логика находится в `app/page.tsx`, оформление — в `app/globals.css`, изображения — в `public/`.
 
+## Структура проекта
+
+- `app/` — интерфейс, расчёты и стили;
+- `public/` — логотип и статические файлы;
+- `.github/workflows/` — автоматическая публикация в GitHub Pages;
+- `Dockerfile`, `compose.yml`, `nginx.conf` — необязательный запуск на собственном сервере.
+
 ## Проверка production-сборки
 
 ```bash

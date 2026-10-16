@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useMemo, useRef, useState } from "react";
 
 type Inputs = {
@@ -329,7 +330,7 @@ export default function Home() {
         <div className="header-inner">
           <div className="header-identity">
             <a className="brand" href="#top">
-              <span className="brand-mark"><img src={`${basePath}/supplied-logo.webp`} alt="Студия Павла Федотова" /></span>
+              <span className="brand-mark"><Image src={`${basePath}/supplied-logo.webp`} alt="Студия Павла Федотова" width={48} height={48} priority /></span>
               <b>Юнитка</b>
             </a>
             <span className="header-title">Юнит-экономика. Универсальный калькулятор v37</span>
@@ -764,7 +765,7 @@ export default function Home() {
       <section className="pdf-report" aria-hidden="true">
         <div className="pdf-header">
           <div className="pdf-logo">
-            <img src={`${basePath}/supplied-logo.webp`} alt="" />
+            <Image src={`${basePath}/supplied-logo.webp`} alt="" width={40} height={40} />
             <span suppressHydrationWarning>{printDate}</span>
           </div>
           <div className="pdf-brand">
